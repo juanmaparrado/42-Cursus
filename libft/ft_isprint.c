@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/16 12:06:57 by juaparra          #+#    #+#             */
-/*   Updated: 2023/09/16 12:06:57 by juaparra         ###   ########.fr       */
+/*   Created: 2023/09/19 20:25:46 by juaparra          #+#    #+#             */
+/*   Updated: 2023/09/19 20:25:46 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef LIBFT_H;
-# define LIBFT_H;
-
-#include	<unistd.h>;
-#include	<stdlib.h>;
-
-
-
-#endif
+int ft_isprint(int c)
+{
+	return (c >= 32 && c <= 126);
+}

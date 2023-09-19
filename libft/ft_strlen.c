@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/16 12:06:57 by juaparra          #+#    #+#             */
-/*   Updated: 2023/09/16 12:06:57 by juaparra         ###   ########.fr       */
+/*   Created: 2023/09/19 20:28:03 by juaparra          #+#    #+#             */
+/*   Updated: 2023/09/19 20:28:03 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef LIBFT_H;
-# define LIBFT_H;
+size_t ft_strlen(const char *s)
+{
+	size_t	i;
 
-#include	<unistd.h>;
-#include	<stdlib.h>;
-
-
-
-#endif
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}

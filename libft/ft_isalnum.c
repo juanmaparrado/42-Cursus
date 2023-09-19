@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/16 12:06:57 by juaparra          #+#    #+#             */
-/*   Updated: 2023/09/16 12:06:57 by juaparra         ###   ########.fr       */
+/*   Created: 2023/09/19 20:21:44 by juaparra          #+#    #+#             */
+/*   Updated: 2023/09/19 20:21:44 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef LIBFT_H;
-# define LIBFT_H;
-
-#include	<unistd.h>;
-#include	<stdlib.h>;
-
-
-
-#endif
+int ft_isalnum(int c)
+{
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'));
+}
