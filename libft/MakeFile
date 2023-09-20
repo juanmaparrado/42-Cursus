@@ -6,16 +6,15 @@
 #    By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/20 12:16:02 by juaparra          #+#    #+#              #
-#    Updated: 2023/09/20 12:16:05 by juaparra         ###   ########.fr        #
+#    Updated: 2023/09/20 12:18:50 by juaparra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME: libft.a
-
+NAME = libft.a
 CC = gcc
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 SOURCE = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
-			ft_strlen.c ft_strchr.c ft_strrchr.c ft_tolower.c ft_toupper.c
+		 ft_tolower.c ft_toupper.c ft_strchr.c ft_strlen.c ft_strrchr.c
 
 OBJECTS = $(SOURCE:.c=.o)
 

@@ -6,13 +6,13 @@
 /*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 11:31:23 by juaparra          #+#    #+#             */
-/*   Updated: 2023/09/20 11:49:52 by juaparra         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:42:12 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int			i;
 	const char	*str;
@@ -21,10 +21,10 @@ char	*strrchr(const char *s, int c)
 	str = 0;
 	while (s[++i])
 	{
-		if (s[i] == (char)c)
+		if (s[i] == (const char)c)
 			str = &s[i];
 	}
-	if (str != 0)
-		return ((char *)str);
-	return (NULL);
+	if (s[i] == (const char)c)
+		str = ((char *)&s[i]);
+	return ((char *)str);
 }
