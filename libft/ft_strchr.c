@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/16 12:06:57 by juaparra          #+#    #+#             */
-/*   Updated: 2023/09/20 11:21:43 by juaparra         ###   ########.fr       */
+/*   Created: 2023/09/20 11:21:18 by juaparra          #+#    #+#             */
+/*   Updated: 2023/09/20 11:40:26 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H;
-# define LIBFT_H ;
+#include "libft.h"
 
-# include <stdlib.h>;
-# include <unistd.h>;
+char	*strchr(char *s, int c)
+{
+	int i;
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-size_t	ft_strlen(const char *s);
-int		ft_tolower(int c);
-int		ft_toupper(int c);
-char *strchr(char *s, int c);
-
-#endif
+	i = -1;
+	while (s[++i])
+	{
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+	}
+	if (s[i] == '\0')
+		return (NULL);
+}
