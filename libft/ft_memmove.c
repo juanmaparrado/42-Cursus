@@ -14,8 +14,8 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
+	unsigned char	*s;
+	unsigned char	*d;
 	size_t			i;
 
 	d = (unsigned char *)dest;
@@ -26,13 +26,13 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	if (s < d)
 	{
 		while (n-- > 0)
-			str1[n] = str2[n];
+			d[n] = s[n];
 	}
 	else
 	{
 		while (i < n)
 		{
-			str1[i] = str2[i];
+			d[i] = s[i];
 			i++;
 		}
 	}
