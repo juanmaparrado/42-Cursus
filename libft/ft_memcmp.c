@@ -19,7 +19,7 @@ int	ft_memcmp(const void *str1, const void *str2, size_t len)
 	unsigned int		i;
 
 	ptr1 = (const unsigned char *)str1;
-	ptr2 = ( const unsigned char *)str2;
+	ptr2 = (const unsigned char *)str2;
 	if (len == 0)
 		return (0);
 	while (ptr1[i] && i < len - 1 && ptr1[i] == ptr2[i])
