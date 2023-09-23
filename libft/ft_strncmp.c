@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:10:19 by juaparra          #+#    #+#             */
-/*   Updated: 2023/09/20 13:54:52 by juaparra         ###   ########.fr       */
+/*   Updated: 2023/09/23 11:12:24 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 11:31:23 by juaparra          #+#    #+#             */
-/*   Updated: 2023/09/20 12:42:12 by juaparra         ###   ########.fr       */
+/*   Updated: 2023/09/23 11:12:18 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
