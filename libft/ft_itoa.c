@@ -6,25 +6,23 @@
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:23:06 by juaparra          #+#    #+#             */
-/*   Updated: 2023/09/25 17:38:59 by juaparra         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:08:33 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_len(long n)
+static size_t	ft_size(long n)
 {
 	size_t	i;
 
-	i = 0;
-	if(n == 0)
-		return(++i);
+	i = 1;
 	if(n < 0)
 	{
 		n *= -1;
 		i++;
 	}
-	while (n > 0)
+	while (n > 9)
 	{
 		n = n / 10;
 		i++;
@@ -38,8 +36,26 @@ char	*ft_itoa(int n)
 	size_t	l;
 	long	n1;
 
-	n1 = n;
-	l = ft_len(n1);
+	n1 = (long)n;
+	l = ft_size(n1);
 	s = (char *)malloc(sizeof(char) * (l + 1));
+	if (!(s))
+		return (NULL);
+	s[l] = '\0';
+	if (n1 < 0)
+	{
+		s[0] = '-';
+		n1 *= -1;
+	}
+	if (n1 == 0)
+		s[0] = '0';
+	while (n1 > 9)
+	{
+		s[l - 1] = (n1 % 10) + '0';
+		n1 = n1 / 10;
+		l--;
+	}
+	if (n1 > 0)
+		s[--l] = n1 + '0';
 	return (s);
 }

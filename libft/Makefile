@@ -6,7 +6,7 @@
 #    By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/14 12:16:02 by juaparra          #+#    #+#              #
-#    Updated: 2023/09/25 17:50:22 by juaparra         ###   ########.fr        #
+#    Updated: 2023/09/26 18:15:20 by juaparra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SOURCE = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 		 ft_strlcpy.c ft_strlcat.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
 		 ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
 		 ft_strtrim.c ft_split.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
-		 ft_putendl_fd.c ft_putnbr_fd.c
+		 ft_putendl_fd.c ft_putnbr_fd.c ft_itoa.c ft_strmapi.c
 
 OBJECTS = $(SOURCE:.c=.o)
 
