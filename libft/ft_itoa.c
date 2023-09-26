@@ -6,7 +6,7 @@
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:23:06 by juaparra          #+#    #+#             */
-/*   Updated: 2023/09/26 18:08:33 by juaparra         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:23:48 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static size_t	ft_size(long n)
 	size_t	i;
 
 	i = 1;
-	if(n < 0)
+	if (n < 0)
 	{
 		n *= -1;
 		i++;
@@ -51,9 +51,8 @@ char	*ft_itoa(int n)
 		s[0] = '0';
 	while (n1 > 9)
 	{
-		s[l - 1] = (n1 % 10) + '0';
+		s[--l] = (n1 % 10) + '0';
 		n1 = n1 / 10;
-		l--;
 	}
 	if (n1 > 0)
 		s[--l] = n1 + '0';

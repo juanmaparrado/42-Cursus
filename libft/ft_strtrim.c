@@ -6,30 +6,49 @@
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 20:47:02 by juaparra          #+#    #+#             */
-/*   Updated: 2023/09/23 21:10:06 by juaparra         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:37:32 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	ft_poscmp(char const *set, char c)
 {
 	size_t	i;
-	size_t	j;
+
+	i = 0;
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	int		i;
+	int		start;
+	int		l;
 	char	*str;
 
-	str = 0;
-	if (s1 != 0 && set != 0)
+	i = 0;
+	start = 0;
+	while (s1[start] && ft_poscmp(set, s1[start]))
+		start++;
+	l = ft_strlen(s1);
+	while (l > start && ft_poscmp(set, s1[l - 1]))
+		l--;
+	str = (char *)malloc(sizeof(char) * (l - start + 1));
+	if (!str)
+		return (NULL);
+	while (start < l)
 	{
-		i = 0;
-		j = ft_strlen(s1);
-		while (s1[i] && ft_strchr(set, s1[i]))
-			i++;
-		while (s1[j - 1] && ft_strchr(set, s1[j - 1]) && j > 1)
-			j--;
-		str = (char *)malloc(sizeof(char) * (j - i + 1));
-		if (str)
-			ft_strlcpy(str, &s1[i], j - i + 1);
+		str[i] = s1[start];
+		i++;
+		start++;
 	}
+	str[i] = '\0';
 	return (str);
 }
