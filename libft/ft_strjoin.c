@@ -6,7 +6,7 @@
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 13:28:02 by juaparra          #+#    #+#             */
-/*   Updated: 2023/09/23 20:41:27 by juaparra         ###   ########.fr       */
+/*   Updated: 2023/09/26 17:58:47 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	j = 0;
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!(str))
+		return (NULL);
 	while (s1[i] != '\0')
 	{
 		str[i] = s1[i];
