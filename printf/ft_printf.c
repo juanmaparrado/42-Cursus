@@ -6,18 +6,18 @@
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:12:49 by juaparra          #+#    #+#             */
-/*   Updated: 2023/10/03 18:29:48 by juaparra         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:49:01 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_print_check(char s, va_list args, int *len)
+static void	ft_print_check(char s, va_list args, int *len, int *i)
 {
 	if (s == 's')
 		ft_putstr(va_arg(args, char *), len);
 	else if (s == 'p')
-		ft_putptr(va_arg(args, void *), len);
+		ft_pointer(va_arg(args, size_t), len);
 	else if (s == 'c')
 		ft_putchar(va_arg(args, size_t), len);
 	else if (s == 'd' || s == 'i')
@@ -34,11 +34,12 @@ static void	ft_print_check(char s, va_list args, int *len)
 		(*i)--;
 }
 
-//si no es ninguno de los anteriores, se resta 1 a i para que no se pierda el caracter
+//si no es ninguno de los anteriores, se resta
+//1 a i para que no se pierda el caracter
 
-int	ft_printf(char const *, ...)
+int	ft_printf(char const *str, ...)
 {
-	va_list args;
+	va_list	args;
 	int		i;
 	int		len;
 
@@ -50,7 +51,7 @@ int	ft_printf(char const *, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			ft_print_check(str[i], args, &len , &i);
+			ft_print_check(str[i], args, &len, &i);
 		}
 		else
 		{

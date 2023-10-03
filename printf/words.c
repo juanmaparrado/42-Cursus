@@ -6,7 +6,7 @@
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:26:22 by juaparra          #+#    #+#             */
-/*   Updated: 2023/10/03 18:28:00 by juaparra         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:50:09 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	ft_putstr(char *arg, int *len)
 		(*len) += 6;
 		return ;
 	}
-	while (args[i] != '\0')
+	while (arg[i] != '\0')
 	{
-		ft_putchar(s[i], len);
+		ft_putchar(arg[i], len);
 		i++;
 	}
 }
