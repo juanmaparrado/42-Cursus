@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lsiter.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 11:45:44 by juaparra          #+#    #+#             */
-/*   Updated: 2023/09/28 11:49:11 by juaparra         ###   ########.fr       */
+/*   Created: 2023/10/03 18:04:50 by juaparra          #+#    #+#             */
+/*   Updated: 2023/10/03 18:05:54 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
-{
-	if (lst)
-	{
-		while (lst)
-		{
-			f(lst->content);
-			lst = lst->next;
-		}
-	}
-}
+# include <stdarg.h> //va_list
+# include <unistd.h> //write
+# include <stdlib.h> //malloc
+# include <stddef.h> //size_t
+
+#endif
