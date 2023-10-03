@@ -6,7 +6,7 @@
 #    By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/03 18:06:21 by juaparra          #+#    #+#              #
-#    Updated: 2023/10/03 18:11:50 by juaparra         ###   ########.fr        #
+#    Updated: 2023/10/03 18:31:58 by juaparra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 
-SRC =
+SRC = ft_printf.c words.c numbers.c
 
 OBJ = $(SRC:.c=.o)
 
