@@ -6,59 +6,62 @@
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:12:49 by juaparra          #+#    #+#             */
-/*   Updated: 2023/10/03 19:49:01 by juaparra         ###   ########.fr       */
+/*   Updated: 2023/11/23 20:59:46 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_print_check(char s, va_list args, int *len, int *i)
+static int	ft_select_type(va_list argument, const char word);
+
+int	ft_print_char(int c)
 {
-	if (s == 's')
-		ft_putstr(va_arg(args, char *), len);
-	else if (s == 'p')
-		ft_pointer(va_arg(args, size_t), len);
-	else if (s == 'c')
-		ft_putchar(va_arg(args, size_t), len);
-	else if (s == 'd' || s == 'i')
-		ft_putnumber(va_arg(args, int), len);
-	else if (s == 'u')
-		ft_unsigned_number(va_arg(args, unsigned int), len);
-	else if (s == 'x')
-		ft_hexadecimal(va_arg(args, unsigned int), len, 'x');
-	else if (s == 'X')
-		ft_hexadecimal(va_arg(args, unsigned int), len, 'X');
-	else if (s == '%')
-		ft_putchar('%', len);
-	else
-		(*i)--;
+	write(1, &c, 1);
+	return (1);
 }
 
-//si no es ninguno de los anteriores, se resta
-//1 a i para que no se pierda el caracter
-
-int	ft_printf(char const *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	va_list	args;
 	int		i;
-	int		len;
+	int		size;
+	va_list	argument;
 
 	i = 0;
-	len = 0;
-	va_start(args, str);
-	while (str[i] != '\0')
+	size = 0;
+	va_start(argument, str);
+	while (str[i])
 	{
 		if (str[i] == '%')
 		{
+			size += ft_select_type(argument, str[i + 1]);
 			i++;
-			ft_print_check(str[i], args, &len, &i);
 		}
 		else
-		{
-			ft_putchar((char)str[i], &len);
-			i++;
-		}
+			size += ft_print_char(str[i]);
+		i++;
 	}
-	va_end(args);
-	return (len);
+	va_end(argument);
+	return (size);
+}
+
+static int	ft_select_type(va_list argument, const char word)
+{
+	int		size;
+
+	size = 0;
+	if (word == 'c')
+		size += ft_print_char(va_arg(argument, int));
+	else if (word == 's')
+		size += ft_print_string(va_arg(argument, char *));
+	else if (word == 'p')
+		size += ft_print_pointer(va_arg(argument, unsigned long long));
+	else if (word == 'd' || word == 'i')
+		size += ft_print_int(va_arg(argument, int));
+	else if (word == 'u')
+		size += ft_print_unsigned(va_arg(argument, unsigned int));
+	else if (word == 'x' || word == 'X')
+		size += ft_print_hexadecimal(va_arg(argument, unsigned int), word);
+	else
+		size += ft_print_char(word);
+	return (size);
 }
