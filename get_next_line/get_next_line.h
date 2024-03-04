@@ -12,11 +12,11 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#include	<unistd.h>
-#include	<stdio.h>
-#include	<stdlib.h>
-#include	<fcntl.h>
-#include	<limits.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <limits.h>
 
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
 size_t	ft_strlen(char *s);
