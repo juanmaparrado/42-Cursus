@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 22024/02/04 10:48:36 by juaparra          #+#    #+#             */
+/*   Created: 22024/02/04 10:48:36 by juaparra          #+#    #+#            */
 /*   Updated: 2024/03/04 16:59:46 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <limits.h>
+#include	<unistd.h>
+#include	<stdio.h>
+#include	<stdlib.h>
+#include	<fcntl.h>
+#include	<limits.h>
 
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
 size_t	ft_strlen(char *s);
