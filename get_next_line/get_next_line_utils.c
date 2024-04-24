@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 10:46:06 by juaparra          #+#    #+#             */
-/*   Updated: 2024/03/04 17:01:40 by juaparra         ###   ########.fr       */
+/*   Updated: 2024/03/19 11:34:09 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

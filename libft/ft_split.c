@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 16:50:10 by juaparra          #+#    #+#             */
-/*   Updated: 2023/09/25 17:16:24 by juaparra         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:54:29 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ static int	ft_countword(char const *s, char c)
 	}
 	return (count);
 }
+
+/*static void	delete(char **s)
+{
+	while (*s)
+		free(s++);
+	free(s);
+
+}*/
 
 char	**ft_split(char const *s, char c)
 {
@@ -52,6 +60,6 @@ char	**ft_split(char const *s, char c)
 		else
 			s++;
 	}
-	str[i] = '\0';
+	str[i] = 0;
 	return (str);
 }

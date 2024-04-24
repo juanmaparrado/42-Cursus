@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basic.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:37:29 by juaparra          #+#    #+#             */
-/*   Updated: 2023/11/23 20:55:34 by juaparra         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:31:36 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	ft_print_int(int n)
 		size += ft_print_unsigned((unsigned int)n);
 		return (size);
 	}
+	return (size);
 }
 
 int	ft_print_unsigned(unsigned int n)
