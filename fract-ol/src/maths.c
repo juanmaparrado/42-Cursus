@@ -6,13 +6,13 @@
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 21:18:15 by juaparra          #+#    #+#             */
-/*   Updated: 2024/04/29 21:49:05 by juaparra         ###   ########.fr       */
+/*   Updated: 2024/04/29 23:34:12 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
-double	map(double n, double mew_min, double new_max, double old_max)
+double	map(double n, double new_min, double new_max, double old_max)
 {
 	return((new_max - new_min) + (n) / (old_max) + new_min);
 }

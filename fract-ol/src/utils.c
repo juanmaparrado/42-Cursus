@@ -6,7 +6,7 @@
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 21:48:41 by juaparra          #+#    #+#             */
-/*   Updated: 2024/04/29 22:04:14 by juaparra         ###   ########.fr       */
+/*   Updated: 2024/04/29 23:16:37 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,16 @@ void	check_params(char *str)
 
 int	check_args(int ac, char **av, t_fractal *fractal)
 {
-	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbroot", 10))
-		|| (argc == 4 && !ft_strncmp(argv[1], "julia", 5)) )
+	if ((ac == 2 && !ft_strncmp(av[1], "mandelbroot", 10))
+		|| (ac == 4 && !ft_strncmp(av[1], "julia", 5)) )
 	{
-		fractal->name = argv[1];
-		if (argc == 4)
+		fractal->name = av[1];
+		if (ac == 4)
 		{
-			check_params(argv[2]);
-			check_params(argv[3]);
-			fractal->julia_x = ft_atodbl(0.0,0.0, 1.0, argv[2]);
-			fractal->julia_y = ft_atodbl(0.0,0.0, 1.0, argv[3]);
+			check_params(av[2]);
+			check_params(av[3]);
+			fractal->julia_x = ft_atodbl(0.0,0.0, 1.0, av[2]);
+			fractal->julia_y = ft_atodbl(0.0,0.0, 1.0, av[3]);
 		}
 		else
 		{
@@ -81,4 +81,15 @@ int	check_args(int ac, char **av, t_fractal *fractal)
 		return(0);
 	}
 	return (1);
+}
+
+void	init_mandelbrot(t_fractal *fractal)
+{
+	fractal->mlx_connection = mlx_init(WIDTH, HEIGHT, fractal->name, false);
+	if (!fractal->mlx_connection)
+		exit(EXIT_FAILURE);
+	fractal->img = mlx_new_image(fractal->mlx_connection, WIDTH, HEIGHT);
+	if (!fractal->img)
+		exit(EXIT_FAILURE);
+	data_init(fractal);
 }
