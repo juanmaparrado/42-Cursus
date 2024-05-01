@@ -1,76 +1,101 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/29 21:34:06 by juaparra          #+#    #+#              #
-#    Updated: 2024/05/01 17:25:27 by juaparra         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME := fractol
+CC := gcc
 
-NAME = fractol
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-MLX42 = lib/MLX42
-LIBFT = lib/libft
-SRC_DIR = src/
-OBJ_DIR = obj/
+CFLAGS := -Wall -Wextra -Werror -g
+
+FSANITIZE := -fsanitize=address -g3 -O3
+
+LIBFT = lib/libft/libft.a
+
+MLX42 = ./lib/MLX42/build/libmlx42.a
+
+MLX42_INSTALL := mlx_install
+
+MLX42_DIR := lib/MLX42
+
+EXTRA := -I include -ldl -lX11 -lXext -lglfw -pthread -lm
+
+EXTRA_MAC := -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/juaparra/.brew/opt/glfw/lib/"
+
+
+OBJDIR := obj
+
+OBJDIR_BONUS := obj_bonus
+
+SRC = src/utils.c src/maths.c src/fractal.c \
+	src/main.c
+
+
+OBJ = $(patsubst src/%.c,$(OBJDIR)/%.o, $(SRC))
+
+
+$(OBJDIR)/%.o : src/%.c | $(OBJDIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+
+all : $(NAME)
+
+$(LIBFT) :
+	@echo "$(YELLOW)Compiling libft...$(DEF_COLOR)"
+	@make -s -C lib/libft
+	@echo "$(GREEN)Libft compiled.$(DEF_COLOR)"
+
+$(MLX42) :
+	@echo "$(YELLOW)Compiling MLX42...$(DEF_COLOR)"
+	@make -s -C lib/MLX42/build
+	@echo "$(GREEN)MLX42 compiled.$(DEF_COLOR)"
+
+$(NAME) : $(OBJ) $(LIBFT) $(MLX42)
+	@echo "$(YELLOW)Compiling so_long...$(DEF_COLOR)"
+	@$(CC) $(CFLAGS) -o $@ $^ src/main.c -I $(EXTRA_MAC)
+	@echo "$(GREEN)fractol ready.$(DEF_COLOR)"
+
+
+$(OBJDIR) :
+	@mkdir -p $(OBJDIR)
+
+
+clean :
+	@make -s clean -C lib/libft
+	@make -s clean -C lib/MLX42/build
+	@rm -rf $(OBJDIR) $(OBJDIR_BONUS)
+	@echo "$(RED)Objects cleaned...$(DEF_COLOR)"
+
+fclean : clean
+	@make -s fclean -C lib/libft
+	@make -s clean -C lib/MLX42/build
+	@rm -rf $(NAME)
+	@echo "$(RED)so_long cleaned...$(DEF_COLOR)"
+
+re : fclean all
+
+re_bonus : fclean
+
+norm :
+	@echo "$(CYAN)Norminette src/$(GREEN)"
+	@norminette src/
+	@echo "$(CYAN)Norminette bonus/src$(GREEN)"
+	@norminette bonus/src/
+	@echo "$(CYAN)Norminette includes/ & bonus/includes/$(GREEN)"
+	@norminette includes/
+	@norminette bonus/includes/
+	@echo "$(DEF_COLOR)"
+
+$(MLX42_INSTALL) :
+	@echo "$(YELLOW)INSTALLING MLX42...$(DEF_COLOR)"
+	@cd $(MLX42_DIR); \
+	cmake -B build; \
+	make -s -C build -j4;
+	@echo "$(GREEN)MLX42 INSTALLED.$(DEF_COLOR)"
+
+# Colors
 
 DEF_COLOR = \033[0;39m
-MAGENTA   = \033[35;1m
-YELLOW    = \033[33;1m
-GREEN     = \033[32;1m
-WHITE     = \033[37;1m
-RESET     = \033[0m
-GRAY 	  = \033[0;90m
-BLUE      = \033[34;1m
-CYAN      = \033[37;1m
-RED		  = \033[31;1m
-
-SRC_FILES = utils main maths fractal
-
-SRC = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
-OBJ = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
-
-OBJF = .cache_exists
-
-all: $(NAME)
-
-$(NAME):	$(OBJ)
-			@make all -C $(LIBFT)
-			@make -C $(MLX42)
-			@$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT) -lft -L$(MLX42) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
-			@echo "$(GREEN)Compilation successful!$(RESET)"
-
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
-			@echo "$(BLUE)Compiling, please wait.: $(RESET)$(addsuffix .c, $(SRC_FILES))"
-			@$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJF):
-			@mkdir -p $(OBJ_DIR)
-
-clean:
-			@rm -frf $(OBJ_DIR)
-			@make clean -C $(MLX42)
-			@make all clean -C $(LIBFT)
-			@echo "$(RED)Cleaning libraries MLX and LIBFT, please wait.$(RESET)"
-			@echo "$(RED)Cleaning program executables, please wait.$(RESET)"
-
-fclean:
-			@rm -rf $(OBJ_DIR)
-			@rm -rf $(NAME)
-			@rm -rf $(OBJ_BONUS)
-			@make fclean -C $(MLX42)
-			@make fclean -C $(LIBFT)
-			@echo "$(YELLOW)Cleaning libraries.$(RESET)"
-			@echo "$(YELLOW)Cleaning program objects.$(RESET)"
-
-re: fclean all
-			@echo "$(MAGENTA)Program recompiled$(RESET)"
-
-norm:
-			@norminette $(SRC) $(LIBFT) $(SRC_BONUS)
-
-.PHONY: all bonus clean fclean re norm
+GRAY = \033[0;90m
+RED = \033[0;91m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+MAGENTA = \033[0;95m
+CYAN = \033[0;96m
+WHITE = \033[0;97m
