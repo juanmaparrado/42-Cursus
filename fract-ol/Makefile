@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+         #
+#    By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/29 21:34:06 by juaparra          #+#    #+#              #
-#    Updated: 2024/04/29 23:42:18 by juaparra         ###   ########.fr        #
+#    Updated: 2024/05/01 17:25:27 by juaparra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
