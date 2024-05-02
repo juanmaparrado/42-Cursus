@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 21:48:41 by juaparra          #+#    #+#             */
-/*   Updated: 2024/04/29 23:16:37 by juaparra         ###   ########.fr       */
+/*   Updated: 2024/05/02 20:38:33 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	data_init(t_fractal *fractal)
 void	push_error(void)
 {
 	ft_putstr_fd("Error: Invalid arguments\n", 2);
-	ft_putstr_fd("Usage: ./fractol [mandelbrot] or \n", 2);
+	ft_putstr_fd("Usage: ./fractol [mandelbroot] or \n", 2);
 	ft_putstr_fd("./fractol [julia] <X num> <Y num> \n", 2);
 	exit(EXIT_FAILURE);
 }
@@ -58,27 +58,30 @@ void	check_params(char *str)
 
 int	check_args(int ac, char **av, t_fractal *fractal)
 {
-	if ((ac == 2 && !ft_strncmp(av[1], "mandelbroot", 10))
-		|| (ac == 4 && !ft_strncmp(av[1], "julia", 5)) )
+	if (ac > 1)
 	{
-		fractal->name = av[1];
-		if (ac == 4)
+		if (ac == 2 && !ft_strncmp(av[1], "mandelbroot", 10))
+			fractal->name = av[1];
+		else if (ac == 4 && !ft_strncmp(av[1], "julia", 5))
 		{
 			check_params(av[2]);
 			check_params(av[3]);
-			fractal->julia_x = ft_atodbl(0.0,0.0, 1.0, av[2]);
-			fractal->julia_y = ft_atodbl(0.0,0.0, 1.0, av[3]);
+			fractal->name = av[1];
+			fractal->julia_x = ft_atodbl(0.0, 0.0, 1.0, av[2]);
+			fractal->julia_y = ft_atodbl(0.0, 0.0, 1.0, av[3]);
 		}
 		else
 		{
+			ft_putstr_fd("esta entrando al check args", 2);
 			push_error();
 			return (0);
 		}
 	}
 	else
 	{
+		ft_putstr_fd("esta entrando al check args", 2);
 		push_error();
-		return(0);
+		return (0);
 	}
 	return (1);
 }

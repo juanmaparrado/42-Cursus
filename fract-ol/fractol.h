@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 14:04:45 by juaparra          #+#    #+#             */
-/*   Updated: 2024/04/29 23:15:37 by juaparra         ###   ########.fr       */
+/*   Updated: 2024/05/02 21:03:38 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,9 @@ double		map(double n, double mew_min, double new_max, double old_max);
 t_complex	sum_complex(t_complex a, t_complex b);
 t_complex	square_complex(t_complex a);
 double		ft_atodbl(int i, double n, double t, char *str);
+
+//HOOKS
+void	my_keyhook(mlx_key_data_t keydata, void *param);
+void	ft_scrollhook(double xdelta, double ydelta, void *param);
 
 #endif

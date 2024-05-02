@@ -22,8 +22,7 @@ OBJDIR := obj
 
 OBJDIR_BONUS := obj_bonus
 
-SRC = src/utils.c src/maths.c src/fractal.c \
-	src/main.c
+SRC = src/utils.c src/maths.c src/fractal.c src/hooks.c
 
 
 OBJ = $(patsubst src/%.c,$(OBJDIR)/%.o, $(SRC))
@@ -46,8 +45,9 @@ $(MLX42) :
 	@echo "$(GREEN)MLX42 compiled.$(DEF_COLOR)"
 
 $(NAME) : $(OBJ) $(LIBFT) $(MLX42)
-	@echo "$(YELLOW)Compiling so_long...$(DEF_COLOR)"
-	@$(CC) $(CFLAGS) -o $@ $^ src/main.c -I $(EXTRA_MAC)
+	@echo "$(YELLOW)Compiling fract-ol...$(DEF_COLOR)"
+	@$(CC) $(CFLAGS) -o $@ $^ src/main.c -Iinclude -lglfw -L"/Users/juaparra/.brew/opt/glfw/lib/"
+
 	@echo "$(GREEN)fractol ready.$(DEF_COLOR)"
 
 
@@ -65,7 +65,7 @@ fclean : clean
 	@make -s fclean -C lib/libft
 	@make -s clean -C lib/MLX42/build
 	@rm -rf $(NAME)
-	@echo "$(RED)so_long cleaned...$(DEF_COLOR)"
+	@echo "$(RED)fract-ol cleaned...$(DEF_COLOR)"
 
 re : fclean all
 
@@ -74,8 +74,6 @@ re_bonus : fclean
 norm :
 	@echo "$(CYAN)Norminette src/$(GREEN)"
 	@norminette src/
-	@echo "$(CYAN)Norminette bonus/src$(GREEN)"
-	@norminette bonus/src/
 	@echo "$(CYAN)Norminette includes/ & bonus/includes/$(GREEN)"
 	@norminette includes/
 	@norminette bonus/includes/
