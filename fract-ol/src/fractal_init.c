@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fractal_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/28 13:50:48 by juaparra          #+#    #+#             */
-/*   Updated: 2024/05/13 20:55:27 by juaparra         ###   ########.fr       */
+/*   Created: 2024/04/29 21:48:41 by juaparra          #+#    #+#             */
+/*   Updated: 2024/05/13 20:42:40 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-int	main(int argc, char **argv)
+void	fr_init(t_fr *fr)
 {
-	if (argc == 2)
-	{
-		if (!(ft_strncmp(argv[1], "J1", 3)) || !(ft_strncmp(argv[1], "J2", 3))
-			|| !(ft_strncmp(argv[1], "J3", 3)) || !(ft_strncmp(argv[1], "M", 2))
-			|| !(ft_strncmp(argv[1], "L", 2)))
-			return (ft_fr(argv[1]));
-		else
-			ft_print_error();
-	}
-	else
-		ft_print_error();
-	return (0);
+	fr->w_size = 400;
+	fr->max_iterations = 1000;
+	fr->julia_x = -0.7269;
+	fr->julia_y = 0.1889;
+	fr->min_i = -2.0;
+	fr->min_r = -2.0;
+	fr->max_r = 2.0;
+	fr->max_i = 2.0;
+	fr->color_shift = 0;
 }

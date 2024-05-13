@@ -15,14 +15,14 @@ MLX42_DIR := lib/MLX42
 
 EXTRA := -I include -ldl -lX11 -lXext -lglfw -pthread -lm
 
-EXTRA_MAC := -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/juaparra/.brew/opt/glfw/lib/"
+EXTRA_MAC := -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/juaparra/.brew/opt/glfw/lib/" -Iinclude -lglfw -L"/Users/juaparra/.brew/opt/glfw/lib/"
 
 
 OBJDIR := obj
 
 OBJDIR_BONUS := obj_bonus
 
-SRC = src/utils.c src/maths.c src/fractal.c src/hooks.c
+SRC = src/calculate_fractals.c src/chose_the_fractal.c src/colors.c src/draw_fractal.c src/fractal_init.c src/hooks.c
 
 
 OBJ = $(patsubst src/%.c,$(OBJDIR)/%.o, $(SRC))
@@ -46,7 +46,9 @@ $(MLX42) :
 
 $(NAME) : $(OBJ) $(LIBFT) $(MLX42)
 	@echo "$(YELLOW)Compiling fract-ol...$(DEF_COLOR)"
-	@$(CC) $(CFLAGS) -o $@ $^ src/main.c -Iinclude -lglfw -L"/Users/juaparra/.brew/opt/glfw/lib/"
+	@$(CC) $(CFLAGS) -o $@ $^ src/main.c -I include -Llib/libft -lft -ldl -lX11 -lXext -lglfw -pthread -lm
+
+
 
 	@echo "$(GREEN)fractol ready.$(DEF_COLOR)"
 

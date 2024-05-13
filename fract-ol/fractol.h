@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 14:04:45 by juaparra          #+#    #+#             */
-/*   Updated: 2024/05/02 21:03:38 by juaparra         ###   ########.fr       */
+/*   Updated: 2024/05/13 20:56:17 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,56 +32,64 @@
 # include "lib/MLX42/include/MLX42/MLX42.h"
 # include <math.h>
 
-# define WIDTH 800
-# define HEIGHT 800
-
-typedef struct s_complex
+typedef struct s_fr
 {
-	double real;
-	double ima;
-}				t_complex;
+	mlx_image_t		*img;
+	mlx_t			*mlx;
+	double			n;
+	double			w_size;
+	long long		max_iterations;
+	double			a_real;
+	double			b_img;
+	double			julia_x;
+	double			julia_y;
 
-typedef struct	s_fractal
+	double			min_r;
+	double			max_r;
+	double			min_i;
+	double			max_i;
+	double			color_shift;
+	char			type;
+
+}					t_fr;
+
+typedef struct s_color
 {
-	//MLX
-	char	*name;
-	mlx_t	*mlx_connection; // mlx_init()
-	void	*mlx_window; //mlx_new_window()
-	//IMAGE
-	mlx_image_t	*img;
-	//NÚMBER BONDARIES
-	void	*colors;
-	double	esc_value; //hypotenuse
-	int		iteration_def;
-	double	shift_x;
-	double	shift_y;
-	double	julia_x;
-	double	julia_y;
-	double	zoom;
-	double	x;
-	double	y;
-}			t_fractal;
+	int				r;
+	int				g;
+	int				b;
+	int				tp;
+}					t_color;
 
-//UTILS
-void	data_init(t_fractal *fractal);
-void	push_error(void);
-void	check_params(char *str);
-int		check_args(int ac, char **av, t_fractal *fractal);
-void	init_mandelbrot(t_fractal *fractal);
+union				u_colour
+{
+	unsigned int	number;
+	unsigned char	channels[4];
+};
 
-//fractal
-void	fractal_render(t_fractal *fractal);
-void	handle_pixel(t_fractal *fractal);
-void	choose_fractal(t_complex *z, t_complex *c, t_fractal *fractal);
+void				draw_julia(void *p);
+void				draw_mandelbrot(void *p);
+void				draw_mandelbox(void *p);
+void				fr_init(t_fr *fr);
+void				ft_error(void);
+void				ft_print_error(void);
+int32_t				ft_fr(char *set);
+void				ft_print_error(void);
+void				draw_leaf(void *p);
+void				fr_chose(char *set, t_fr *fr);
 
-//MATHS
-double		map(double n, double mew_min, double new_max, double old_max);
-t_complex	sum_complex(t_complex a, t_complex b);
-t_complex	square_complex(t_complex a);
-double		ft_atodbl(int i, double n, double t, char *str);
+int					calculate_mandelbrot(t_fr *f, int x, int y);
+int					calculate_julia(t_fr *f);
+int32_t				ft_fr(char *set);
 
-//HOOKS
-void	my_keyhook(mlx_key_data_t keydata, void *param);
-void	ft_scrollhook(double xdelta, double ydelta, void *param);
+// colors
+int					foo(int continuous_index);
+void				color_shift(void *p);
+
+// hooks
+void				hook(void *ptr);
+void				scrollfunc(double xdelta, double ydelta, void *param);
+
+void				move_julia(void *ptr);
 
 #endif
