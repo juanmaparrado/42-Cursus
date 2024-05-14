@@ -1,31 +1,39 @@
-NAME := fractol
-CC := gcc
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/05/14 19:36:59 by juaparra          #+#    #+#              #
+#    Updated: 2024/05/14 19:46:33 by juaparra         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CFLAGS := -Wall -Wextra -Werror -g
+NAME :=	fractol
+CC :=	gcc
 
-FSANITIZE := -fsanitize=address -g3 -O3
+CFLAGS :=	-Wall -Wextra -Werror
 
-LIBFT = lib/libft/libft.a
+LIBFT =	lib/libft/libft.a
 
-MLX42 = ./lib/MLX42/build/libmlx42.a
+MLX42 =	./lib/MLX42/build/libmlx42.a
 
-MLX42_INSTALL := mlx_install
+MLX42_INSTALL :=	mlx_install
 
-MLX42_DIR := lib/MLX42
+MLX42_DIR :=	lib/MLX42
 
-EXTRA := -I include -ldl -lX11 -lXext -lglfw -pthread -lm
+EXTRA_LINUX :=	-I include -ldl -lX11 -lXext -lglfw -pthread -lm
 
-EXTRA_MAC := -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/juaparra/.brew/opt/glfw/lib/"
+EXTRA_MAC :=	-Iinclude -lglfw -L"/Users/juaparra/.brew/opt/glfw/lib/"
 
+OBJDIR :=	obj
 
-OBJDIR := obj
-
-OBJDIR_BONUS := obj_bonus
-
-SRC = src/calculate_fractals.c src/chose_the_fractal.c src/colors.c src/draw_fractal.c src/fractal_init.c src/hooks.c
+SRC	=	src/calculate_fractals.c src/chose_the_fractal.c src/colors.c \
+		src/draw_fractal.c src/fractal_init.c src/hooks.c
 
 
-OBJ = $(patsubst src/%.c,$(OBJDIR)/%.o, $(SRC))
+OBJ =	$(patsubst src/%.c,$(OBJDIR)/%.o, $(SRC))
 
 
 $(OBJDIR)/%.o : src/%.c | $(OBJDIR)
@@ -46,7 +54,7 @@ $(MLX42) :
 
 $(NAME) : $(OBJ) $(LIBFT) $(MLX42)
 	@echo "$(YELLOW)Compiling fract-ol...$(DEF_COLOR)"
-	@$(CC) $(CFLAGS) -o $@ $^ src/main.c -Iinclude -lglfw -L"/Users/juaparra/.brew/opt/glfw/lib/"
+	@$(CC) $(CFLAGS) -o $@ $^ src/main.c $(EXTRA_MAC)
 
 
 
@@ -71,14 +79,9 @@ fclean : clean
 
 re : fclean all
 
-re_bonus : fclean
-
 norm :
-	@echo "$(CYAN)Norminette src/$(GREEN)"
-	@norminette src/
-	@echo "$(CYAN)Norminette includes/ & bonus/includes/$(GREEN)"
-	@norminette includes/
-	@norminette bonus/includes/
+	@echo "$(CYAN)Norminette  src/$(GREEN)"
+	@norminette -R CheckForbiddenSourceHeader src/
 	@echo "$(DEF_COLOR)"
 
 $(MLX42_INSTALL) :
@@ -87,15 +90,3 @@ $(MLX42_INSTALL) :
 	cmake -B build; \
 	make -s -C build -j4;
 	@echo "$(GREEN)MLX42 INSTALLED.$(DEF_COLOR)"
-
-# Colors
-
-DEF_COLOR = \033[0;39m
-GRAY = \033[0;90m
-RED = \033[0;91m
-GREEN = \033[0;92m
-YELLOW = \033[0;93m
-BLUE = \033[0;94m
-MAGENTA = \033[0;95m
-CYAN = \033[0;96m
-WHITE = \033[0;97m

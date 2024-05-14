@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_fractals.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 20:45:38 by juaparra          #+#    #+#             */
-/*   Updated: 2024/05/13 20:45:50 by juaparra         ###   ########.fr       */
+/*   Created: 2024/05/03 20:45:38 by juaparra          #+#    #+#             */
+/*   Updated: 2024/05/14 19:39:15 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

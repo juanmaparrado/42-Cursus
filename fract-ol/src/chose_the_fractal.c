@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 20:44:17 by juaparra          #+#    #+#             */
-/*   Updated: 2024/05/14 19:18:34 by juaparra         ###   ########.fr       */
+/*   Created: 2024/05/03 20:44:17 by juaparra          #+#    #+#             */
+/*   Updated: 2024/05/14 19:40:05 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	fr_chose(char *set, t_fr *fr)
 	}
 }
 
-int32_t	ft_fr(char *set)
+int	ft_fr(char *set)
 {
 	t_fr	*fr;
 
@@ -84,12 +84,12 @@ void	ft_print_error(void)
 	ft_putstr_fd("\nWrong input!\n", 2);
 	ft_putstr_fd("\n===== Available fr Sets =====\n\n", 2);
 	ft_putstr_fd("Type M to display Mandelbrot set\n", 2);
-	ft_putstr_fd("Type J1, J2 or J3 to display Julia set\n",2);
-	ft_putstr_fd("Type B to display Mandelbox set\n",2);
-	ft_putstr_fd("Type L to display Leave :)\n\n",2);
-	ft_putstr_fd("===== Additional features ======\n\n",2);
-	ft_putstr_fd("Z, X, C and V: change Julia set parameters\n",2);
-	ft_putstr_fd("SPACE KEY: color shift\n",2);
-	ft_putstr_fd("ARROWS KEYS: move the view\n",2);
-	ft_putstr_fd("MOUSE SCROLL: zoom in and out\n\n",2);
+	ft_putstr_fd("Type J1, J2 or J3 to display Julia set\n", 2);
+	ft_putstr_fd("Type B to display Mandelbox set\n", 2);
+	ft_putstr_fd("Type L to display Leave :)\n\n", 2);
+	ft_putstr_fd("===== Additional features ======\n\n", 2);
+	ft_putstr_fd("Z, X, C and V: change Julia set parameters\n", 2);
+	ft_putstr_fd("SPACE KEY: color shift\n", 2);
+	ft_putstr_fd("ARROWS KEYS: move the view\n", 2);
+	ft_putstr_fd("MOUSE SCROLL: zoom in and out\n\n", 2);
 }

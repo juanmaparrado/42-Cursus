@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 21:18:15 by juaparra          #+#    #+#             */
-/*   Updated: 2024/05/13 20:43:45 by juaparra         ###   ########.fr       */
+/*   Updated: 2024/05/14 19:41:00 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

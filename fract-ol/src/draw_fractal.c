@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_fractal.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 22:49:13 by juaparra          #+#    #+#             */
-/*   Updated: 2024/05/13 20:43:20 by juaparra         ###   ########.fr       */
+/*   Updated: 2024/05/14 19:41:03 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
