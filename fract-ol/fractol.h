@@ -3,30 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 14:04:45 by juaparra          #+#    #+#             */
-/*   Updated: 2024/05/13 20:56:17 by juaparra         ###   ########.fr       */
+/*   Updated: 2024/05/14 19:20:24 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-
-// Definición de colores en formato hexadecimal ARGB
-# define BLACK       0x000000FF
-# define WHITE       0xFFFFFFFF
-# define RED         0xFF0000FF
-# define GREEN       0x00FF00FF
-# define BLUE        0x0000FFFF
-# define YELLOW      0xFFFF00FF
-# define MAGENTA     0xFF00FFFF
-# define CYAN        0x00FFFFFF
-# define ORANGE      0xFFA500FF
-# define PURPLE      0x660066FF
-# define GRAY        0x808080FF
-# define LIGHT_GRAY  0xD3D3D3FF
-# define DARK_GRAY   0xA9A9A9FF
 
 # include "lib/libft/libft.h"
 # include "lib/MLX42/include/MLX42/MLX42.h"

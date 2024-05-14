@@ -15,7 +15,7 @@ MLX42_DIR := lib/MLX42
 
 EXTRA := -I include -ldl -lX11 -lXext -lglfw -pthread -lm
 
-EXTRA_MAC := -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/juaparra/.brew/opt/glfw/lib/" -Iinclude -lglfw -L"/Users/juaparra/.brew/opt/glfw/lib/"
+EXTRA_MAC := -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/juaparra/.brew/opt/glfw/lib/"
 
 
 OBJDIR := obj
@@ -46,7 +46,7 @@ $(MLX42) :
 
 $(NAME) : $(OBJ) $(LIBFT) $(MLX42)
 	@echo "$(YELLOW)Compiling fract-ol...$(DEF_COLOR)"
-	@$(CC) $(CFLAGS) -o $@ $^ src/main.c -I include -Llib/libft -lft -ldl -lX11 -lXext -lglfw -pthread -lm
+	@$(CC) $(CFLAGS) -o $@ $^ src/main.c -Iinclude -lglfw -L"/Users/juaparra/.brew/opt/glfw/lib/"
 
 
 

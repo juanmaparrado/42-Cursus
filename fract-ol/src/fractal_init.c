@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 21:48:41 by juaparra          #+#    #+#             */
-/*   Updated: 2024/05/13 20:42:40 by juaparra         ###   ########.fr       */
+/*   Updated: 2024/05/14 19:19:01 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	fr_init(t_fr *fr)
 {
-	fr->w_size = 400;
+	fr->w_size = 800;
 	fr->max_iterations = 1000;
 	fr->julia_x = -0.7269;
 	fr->julia_y = 0.1889;

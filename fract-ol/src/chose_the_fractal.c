@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chose_the_fractal.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
+/*   By: juaparra <juaparra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 20:44:17 by juaparra          #+#    #+#             */
-/*   Updated: 2024/05/13 20:53:52 by juaparra         ###   ########.fr       */
+/*   Updated: 2024/05/14 19:18:34 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	ft_print_error(void)
 	ft_putstr_fd("Type J1, J2 or J3 to display Julia set\n",2);
 	ft_putstr_fd("Type B to display Mandelbox set\n",2);
 	ft_putstr_fd("Type L to display Leave :)\n\n",2);
-	ft_putstr_fd("===== Additional features ======\n]n",2);
+	ft_putstr_fd("===== Additional features ======\n\n",2);
 	ft_putstr_fd("Z, X, C and V: change Julia set parameters\n",2);
 	ft_putstr_fd("SPACE KEY: color shift\n",2);
 	ft_putstr_fd("ARROWS KEYS: move the view\n",2);
