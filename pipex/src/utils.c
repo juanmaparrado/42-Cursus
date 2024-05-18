@@ -19,11 +19,17 @@ int open_file(char *file,int x)
 
     if (x == 0)
         ret = open(file,O_RDONLY, 0777);
-    if (x == 1)
+    else if (x == 1)
         ret = open(file,O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	else {
+        perror("Invalid mode for opening file");
+        exit(EXIT_FAILURE);
+    }
     if (x == -1)
-        exit(0);
-
+	{
+        perror("Failed to open file");
+        exit(EXIT_FAILURE);
+	}
     return(ret);
 }
 
@@ -71,30 +77,23 @@ char	*my_getenv(char *name, char **env)
 	return (NULL);
 }
 
-char	*get_path(char *cmd, char **env)
-{
-	int		i;
-	char	*exec;
-	char	**allpath;
-	char	*path_part;
-	char	**s_cmd;
-
-	i = -1;
-	allpath = ft_split(my_getenv("PATH", env), ':');
-	s_cmd = ft_split(cmd, ' ');
-	while (allpath[++i])
-	{
-		path_part = ft_strjoin(allpath[i], "/");
-		exec = ft_strjoin(path_part, s_cmd[0]);
-		free(path_part);
-		if (access(exec, F_OK | X_OK) == 0)
-		{
-			ft_free(s_cmd);
-			return (exec);
-		}
-		free(exec);
-	}
-	ft_free(allpath);
-	ft_free(s_cmd);
-	return (cmd);
+char *get_path(char *cmd, char **env) {
+    char **allpath = ft_split(my_getenv("PATH", env), ':');
+    char **s_cmd = ft_split(cmd, ' ');
+    int i = 0;
+    while (allpath[i]) {
+        char *path_part = ft_strjoin(allpath[i], "/");
+        char *exec = ft_strjoin(path_part, s_cmd[0]);
+        free(path_part);
+        if (access(exec, F_OK | X_OK) == 0) {
+            ft_free(s_cmd);
+            ft_free(allpath);
+            return exec;
+        }
+        free(exec);
+        i++;
+    }
+    ft_free(s_cmd);
+    ft_free(allpath);
+    return cmd;
 }
