@@ -3,7 +3,7 @@
     <br>
     <br>
     <a href='https://profile.intra.42.fr/users/juaparra' target="_blank">
-        <img alt='42 (oscuro)' src='https://img.shields.io/badge/Málaga-black?style=flat&logo=42&logoColor=black'/>
+        <img alt='42 (oscuro)' src='https://img.shields.io/badge/Málaga-black?style=flat&logo=42&logoColor=white'/>
     </a>
 </div>
 
