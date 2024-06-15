@@ -1,4 +1,3 @@
-Should work tests:
 
     TEST 1
     This command should takes only the line that have the word PIPEX and redirect it to the oufile as uppercase.
@@ -68,8 +67,7 @@ Should work tests:
                             src
                             test
 
-##############################################################################
-##############################################################################
+
 
 Error tests:
 
