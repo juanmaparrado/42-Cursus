@@ -5,7 +5,7 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 12:32:57 by juaparra          #+#    #+#             */
+/*   Created: 2024/06/26 12:32:57 by juaparra          #+#    #+#             */
 /*   Updated: 2024/07/16 12:33:00 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -13,9 +13,9 @@
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
-# include<unistd.h>
-# include<stdlib.h>
-# include<limits.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_list
 {

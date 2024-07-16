@@ -5,7 +5,7 @@
 #                                                     +:+ +:+         +:+      #
 #    By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/16 12:36:54 by juaparra          #+#    #+#              #
+#    Created: 2024/06/26 12:36:54 by juaparra          #+#    #+#              #
 #    Updated: 2024/07/16 12:36:55 by juaparra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
@@ -44,4 +44,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY: all clean fclean re $(LIBFT) $(FT_PRINTF)
+.PHONY: all clean fclean re

@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 12:36:31 by juaparra          #+#    #+#             */
+/*   Created: 2024/06/26 12:36:31 by juaparra          #+#    #+#             */
 /*   Updated: 2024/07/16 12:36:35 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include "../inc/pushswap.h"
 
 void	swap(int *argv1, int *argv2)
 {

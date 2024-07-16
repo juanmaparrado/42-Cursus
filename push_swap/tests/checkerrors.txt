@@ -1,0 +1,8 @@
+./push_swap 2147483667 -2147483647 
+./push_swap +
+./push_swap -
+./push_swap 1
+./push_swap 3 1 -5
+./push_swap 5 3 1 -5 4
+./push_swap 3 2 1 5 4
+./push_swap
