@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   sortnum.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 12:36:31 by juaparra          #+#    #+#             */
-/*   Updated: 2024/07/16 12:36:35 by juaparra         ###   ########.fr       */
+/*   Created: 2024/07/16 12:36:19 by juaparra          #+#    #+#             */
+/*   Updated: 2024/07/16 12:36:20 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../inc/pushswap.h"
 
-
-void	swap(int *argv1, int *argv2)
+void	sortnum(t_list *d)
 {
-	int	temp;
+	int	i;
+	int	c;
+	int	j;
 
-	temp = *argv1;
-	*argv1 = *argv2;
-	*argv2 = temp;
+	i = 0;
+	c = 0;
+	j = d->argc;
+	while (c < j)
+	{
+		while (i < j - 1)
+		{
+			if (d->sp[i] > d->sp[i + 1])
+				swap(&d->sp[i], &d->sp[i + 1]);
+			i++;
+		}
+		i = 0;
+		c++;
+	}
 }

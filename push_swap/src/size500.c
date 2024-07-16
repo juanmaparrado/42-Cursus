@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   size500.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 12:36:31 by juaparra          #+#    #+#             */
-/*   Updated: 2024/07/16 12:36:35 by juaparra         ###   ########.fr       */
+/*   Created: 2024/07/16 12:36:11 by juaparra          #+#    #+#             */
+/*   Updated: 2024/07/16 12:36:12 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../inc/pushswap.h"
 
-
-void	swap(int *argv1, int *argv2)
+void	size500(t_list *d)
 {
-	int	temp;
-
-	temp = *argv1;
-	*argv1 = *argv2;
-	*argv2 = temp;
+	d->lsp = d->argc -1;
+	d->control = 0;
+	d->percentage = 1;
+	d->cont = 7;
+	d->size_block = (d->argc / d->cont) / 2;
+	d->argmax = d->argc;
+	sortnum(d);
+	changenum(d);
+	ordernums(d);
 }

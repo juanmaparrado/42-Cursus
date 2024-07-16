@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juaparra < juaparra@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 12:36:31 by juaparra          #+#    #+#             */
-/*   Updated: 2024/07/16 12:36:35 by juaparra         ###   ########.fr       */
+/*   Created: 2024/07/16 12:34:37 by juaparra          #+#    #+#             */
+/*   Updated: 2024/07/16 12:34:38 by juaparra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../inc/pushswap.h"
 
-
-void	swap(int *argv1, int *argv2)
+void	rb(t_list *d)
 {
-	int	temp;
+	int	i;
 
-	temp = *argv1;
-	*argv1 = *argv2;
-	*argv2 = temp;
+	i = 0;
+	while (i + 1 < d->sib)
+	{
+		swap(&d->sb[i], &d->sb[i + 1]);
+		i++;
+	}
+	write(1, "rb\n", 3);
 }
